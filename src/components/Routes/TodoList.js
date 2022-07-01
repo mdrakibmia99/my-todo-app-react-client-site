@@ -7,6 +7,8 @@ const TodoList = () => {
     
     const [tasks, setTasks] = useState([]);
     const [task,setTask]=useState(null);
+  
+    const [newTask,setNewTask]=useState('');
     useEffect(() => {
         const url = `http://localhost:5000/task`;
         const getLists = async () => {
@@ -17,12 +19,14 @@ const TodoList = () => {
         };
         getLists();
     }, [tasks]);
+
+     
     
     const handleAddTask = (event) => {
         event.preventDefault();
         const task_desc = event.target.task_desc.value;
-        console.log(task_desc);
-        const list = { desc: task_desc }
+
+        const list = { desc: task_desc,check:"No"}
         axios.post('http://localhost:5000/task', list)
             .then(res => (res.data));
 
@@ -46,6 +50,7 @@ const TodoList = () => {
                         key={task._id}
                         task={task}
                         setTask={setTask}
+                        setNewTask={setNewTask}
                         >
 
                         </Todo>)

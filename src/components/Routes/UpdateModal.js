@@ -1,24 +1,29 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 const UpdateModal = ({task,setTask}) => {
-    const handleUpdateTask =(event)=>{
-        event.preventDefault();
-        const updateTask = event.target.updateTask.value;
-        console.log(updateTask);
+    const {desc,_id}=task;
+    const [updateTaskValue,setUpdateTaskValue]=useState('');
+   
+    const handleUpdateTask =async()=>{
+        console.log(_id,"id kiii")
+        const {data } = await axios.put(`http://localhost:5000/task/${_id}`, {desc:updateTaskValue});
+        console.log(data)
         setTask(null);
-
     }
+
+
     return (
         <div>
-            <input type="checkbox" id="updateTaskModal" class="modal-toggle" />
-            <div class="modal">
-                <div class="modal-box relative">
-                    <label for="updateTaskModal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                     <form onSubmit={handleUpdateTask}>
+            <input type="checkbox" id="updateTaskModal" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box relative">
+                    <label htmlFor="updateTaskModal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                     
                         <h2 className='text-3xl font-bold text-indigo-600 mb-5'>Update Your Task!</h2>
-                        <input name='updateTask' type="text" value={task.desc} className="input input-bordered border-indigo-600 w-full max-w-xs"/>
-                        <input type="submit" value="Update Task" />
-                     </form>
+                        <input name='updateTask' type="text" onChange={(event)=>setUpdateTaskValue(event.target.value)} placeholder={desc}  className="input input-bordered border-indigo-600 w-full max-w-xs text-lg text-black"/>
+                        <button onClick={handleUpdateTask} className='btn  btn-primary block mt-5 hover:btn-outline '>Update Task </button>
+                     
                 </div>
             </div>
         </div>

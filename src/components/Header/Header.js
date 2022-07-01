@@ -14,7 +14,7 @@ const Header = () => {
                 </div>
 
                 <div onClick={() => setOpen(!open)} className='text-3xl absolute right-8 top-6 cursor-pointer md:hidden'>
-                    <span>{open ? <i class="fa fa-times" aria-hidden="true"></i> : <i class="fa fa-bars" aria-hidden="true"></i>} </span>
+                    <span>{open ? <i className="fa fa-times" aria-hidden="true"></i> : <i className="fa fa-bars" aria-hidden="true"></i>} </span>
                     
                 </div>
 

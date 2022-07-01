@@ -11,7 +11,7 @@ const Calender = () => {
         footer = <p className='text-indigo-600 font-bold text-2xl'>You picked {format(selected, 'PP')}.</p>;
     }
     return (
-        <div className='flex justify-center align-center mt-52' style={{ height: "100vh" }}>
+        <div className='flex justify-center align-center mt-52'>
 
             <div >
                 <DayPicker
