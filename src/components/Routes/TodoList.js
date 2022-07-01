@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Todo from './Todo';
+import UpdateModal from './UpdateModal';
 
 const TodoList = () => {
     
     const [tasks, setTasks] = useState([]);
+    const [task,setTask]=useState(null);
     useEffect(() => {
         const url = `http://localhost:5000/task`;
         const getLists = async () => {
@@ -43,12 +45,14 @@ const TodoList = () => {
                         tasks?.map((task) =><Todo
                         key={task._id}
                         task={task}
+                        setTask={setTask}
                         >
 
                         </Todo>)
                     }
                 </div>
             </div>
+            {task && <UpdateModal task={task} setTask={setTask}></UpdateModal>}
         </div>
     );
 };
