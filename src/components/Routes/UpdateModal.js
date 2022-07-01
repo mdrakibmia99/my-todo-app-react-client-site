@@ -6,7 +6,7 @@ const UpdateModal = ({task,setTask}) => {
     const [updateTaskValue,setUpdateTaskValue]=useState('');
    
     const handleUpdateTask =async()=>{
-        const {data } = await axios.put(`http://localhost:5000/task/${_id}`, {desc:updateTaskValue});
+        const {data } = await axios.put(`https://degrassi-toonie-63722.herokuapp.com/task/${_id}`, {desc:updateTaskValue});
         console.log(data)
         setTask(null);
     }

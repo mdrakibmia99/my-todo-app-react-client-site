@@ -6,7 +6,7 @@ const Todo = ({ task ,setTask}) => {
     const [checked,setChecked]=useState(false)
 
     const handleDeleteList = (id) => {
-        axios.delete(`http://localhost:5000/task/${id}`)
+        axios.delete(`https://degrassi-toonie-63722.herokuapp.com/task/${id}`)
             .then(res => {
                 console.log(res);
                 toast('item deleted');
@@ -16,7 +16,7 @@ const Todo = ({ task ,setTask}) => {
 
     }
     const handleChecked=async()=>{
-        const { data } = await axios.put(`http://localhost:5000/task/${_id}`, { check: checked ? 'yes' : 'no' });
+        const { data } = await axios.put(`https://degrassi-toonie-63722.herokuapp.com/task/${_id}`, { check: checked ? 'yes' : 'no' });
         console.log(data);
 
     }

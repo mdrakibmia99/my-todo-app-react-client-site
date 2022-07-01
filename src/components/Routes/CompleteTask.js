@@ -6,7 +6,7 @@ const CompleteTask = () => {
     const [checkedTask,setCheckedTask]=useState([])
     const [task,setTask]=useState(null);
     useEffect(() => {
-        const url = `http://localhost:5000/checkedTask`;
+        const url = `https://degrassi-toonie-63722.herokuapp.com/checkedTask`;
         const getLists = async () => {
             const request = await fetch(url);
             const response = await request.json();

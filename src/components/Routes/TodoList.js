@@ -10,7 +10,7 @@ const TodoList = () => {
   
 
     useEffect(() => {
-        const url = `http://localhost:5000/task`;
+        const url = `https://degrassi-toonie-63722.herokuapp.com/task`;
         const getLists = async () => {
             const request = await fetch(url);
             const response = await request.json();
@@ -26,7 +26,7 @@ const TodoList = () => {
         event.preventDefault();
         const task_desc = event.target.task_desc.value;
         const list = { desc: task_desc,check:"no"}
-        axios.post('http://localhost:5000/task', list)
+        axios.post('https://degrassi-toonie-63722.herokuapp.com/task', list)
             .then(res => (res.data));
 
             event.target.reset();
