@@ -1,12 +1,11 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 const UpdateModal = ({task,setTask}) => {
     const {desc,_id}=task;
     const [updateTaskValue,setUpdateTaskValue]=useState('');
    
     const handleUpdateTask =async()=>{
-        console.log(_id,"id kiii")
         const {data } = await axios.put(`http://localhost:5000/task/${_id}`, {desc:updateTaskValue});
         console.log(data)
         setTask(null);
