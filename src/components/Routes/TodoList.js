@@ -34,7 +34,7 @@ const TodoList = () => {
 
     }
     return (
-        <div>
+        <div className=''>
             <div className='mt-40'>
                     <form className='flex w-full md:w-1/2 lg:w-1/2 mx-auto px-10' onSubmit={handleAddTask}>
                     <input type="text" name='task_desc' className='w-full border-indigo-600 form-control relative flex-auto min-w-0 block  px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid   transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none' placeholder="Type Your Task" aria-label="Search" />
